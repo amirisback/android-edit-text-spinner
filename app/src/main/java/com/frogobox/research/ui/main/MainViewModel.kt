@@ -20,11 +20,16 @@ class MainViewModel : ViewModel() {
     private var _dataSpinner = MutableLiveData<List<SpinnerItemType>>()
     var dataSpinner: LiveData<List<SpinnerItemType>> = _dataSpinner
 
+    private var _dataSpinnerString = MutableLiveData<List<String>>()
+    var dataSpinnerString: LiveData<List<String>> = _dataSpinnerString
+
+
     fun getSpinnerData() {
         val data = mutableListOf<String>()
         for (i in 1..10) {
             data.add("Data $i")
         }
+        _dataSpinnerString.postValue(data)
         populateSuccess(data)
     }
 
